@@ -11,33 +11,33 @@ def welcome():
     print(line)
     print(" 1.Ping \n 2.Flush DNS \n 3.Trace IP \n 4.Show IP info \n 5.System Info \n 0.Exit \n")
     print(line)
-    odabir = int(input("Enter your choice: "))
-    return odabir
+    chs = int(input("Enter your choice: "))
+    return chs
 
 
-odabir = welcome
+chs = welcome
 
 
-def StatusMonitor(pomocna):
-    if(pomocna == 1):
-        hostname = input("\n Unesite hostname: \n")
+def StatusMonitor(mon):
+    if(mon == 1):
+        hostname = input("\n Input hostname: \n")
         return os.system("ping " + hostname)
-    elif(pomocna == 2):
+    elif(mon == 2):
         DNSShow = os.system("ipconfig /displaydns")
         print(DNSShow)
         return os.system("ipconfig /flushdns")
-    elif(pomocna == 3):
+    elif(mon == 3):
         print("Trace IP route")
-        IPtoTrace = input("Unesite IP: \n")
+        IPtoTrace = input("Input IP: \n")
         return os.system("tracert " + IPtoTrace)
-    elif(pomocna == 4):
+    elif(mon == 4):
         print("IP information info")
         return os.system("ipconfig /all")
-    elif(pomocna == 5):
+    elif(mon == 5):
         print("System Info")
         return os.system("systeminfo")
-    elif(pomocna == 0):
+    elif(mon == 0):
         print("Bye Bye ")
         return exit(0)
-while odabir is not 0:
+while chs is not 0:
     StatusMonitor(welcome())
